@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="HXKeyboardEditText">
+        <attr name="keyboard_type" format="enum">
+            <enum name="CodeNum" value="0"/>
+            <enum name="PhoneNum" value="1"/>
+            <enum name="BankNum" value="2"/>
+            <enum name="IDNum" value="3"/>
+            <enum name="PayPasswordNum" value="4"/>
+            <enum name="MoneyNum" value="5"/>
+        </attr>
+    </declare-styleable>
+</resources>

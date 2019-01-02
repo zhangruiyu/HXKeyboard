@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="214dp"
+    android:layout_alignParentBottom="true"
+    android:background="@color/color_FFFFFF"
+    >
+    <include layout="@layout/horizontal_line_e0e0e0"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="214dp"
+        android:orientation="horizontal"
+        >
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="horizontal"
+            >
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    >
+                    <TextView
+                        android:id="@+id/tv1_keyboard"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="1"
+                        android:gravity="center"
+                        android:textSize="24dp"
+                        android:textColor="@color/color_313131"
+                        />
+                </LinearLayout>
+                <include layout="@layout/horizontal_line_e0e0e0"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    >
+                    <TextView
+                        android:id="@+id/tv4_keyboard"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="4"
+                        android:gravity="center"
+                        android:textSize="24dp"
+                        android:textColor="@color/color_313131"
+                        />
+
+                </LinearLayout>
+                <include layout="@layout/horizontal_line_e0e0e0"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    >
+                    <TextView
+                        android:id="@+id/tv7_keyboard"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="7"
+                        android:gravity="center"
+                        android:textSize="24dp"
+                        android:textColor="@color/color_313131"
+                        />
+
+                </LinearLayout>
+                <include layout="@layout/horizontal_line_e0e0e0"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    >
+                    <TextView
+                        android:id="@+id/tv00_keyboard"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="00"
+                        android:gravity="center"
+                        android:textSize="24dp"
+                        android:textColor="@color/color_313131"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+            <include layout="@layout/vertical_line_e0e0e0"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    >
+                    <TextView
+                        android:id="@+id/tv2_keyboard"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="2"
+                        android:gravity="center"
+                        android:textSize="24dp"
+                        android:textColor="@color/color_313131"
+                        />
+
+                </LinearLayout>
+                <include layout="@layout/horizontal_line_e0e0e0"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    >
+                    <TextView
+                        android:id="@+id/tv5_keyboard"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="5"
+                        android:gravity="center"
+                        android:textSize="24dp"
+                        android:textColor="@color/color_313131"
+                        />
+                </LinearLayout>
+                <include layout="@layout/horizontal_line_e0e0e0"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    >
+                    <TextView
+                        android:id="@+id/tv8_keyboard"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="8"
+                        android:gravity="center"
+                        android:textSize="24dp"
+                        android:textColor="@color/color_313131"
+                        />
+                </LinearLayout>
+                <include layout="@layout/horizontal_line_e0e0e0"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    >
+                    <TextView
+                        android:id="@+id/tv0_keyboard"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="0"
+                        android:gravity="center"
+                        android:textSize="24dp"
+                        android:textColor="@color/color_313131"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <include layout="@layout/vertical_line_e0e0e0"/>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    >
+                    <TextView
+                        android:id="@+id/tv3_keyboard"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="3"
+                        android:gravity="center"
+                        android:textSize="24dp"
+                        android:textColor="@color/color_313131"
+                        />
+
+                </LinearLayout>
+                <include layout="@layout/horizontal_line_e0e0e0"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    >
+                    <TextView
+                        android:id="@+id/tv6_keyboard"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="6"
+                        android:gravity="center"
+                        android:textSize="24dp"
+                        android:textColor="@color/color_313131"
+                        />
+
+                </LinearLayout>
+                <include layout="@layout/horizontal_line_e0e0e0"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    >
+                    <TextView
+                        android:id="@+id/tv9_keyboard"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="9"
+                        android:gravity="center"
+                        android:textSize="24dp"
+                        android:textColor="@color/color_313131"
+                        />
+                </LinearLayout>
+                <include layout="@layout/horizontal_line_e0e0e0"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    >
+                    <TextView
+                        android:id="@+id/tvdian_keyboard"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="."
+                        android:gravity="center_horizontal"
+                        android:textSize="28dp"
+                        android:paddingBottom="20dp"
+                        android:textColor="@color/color_313131"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+            <include layout="@layout/vertical_line_e0e0e0"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:id="@+id/lldelete_keyboard"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/delete_keyboard"
+                    />
+
+
+            </LinearLayout>
+            <include layout="@layout/horizontal_line_e0e0e0"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                >
+                <TextView
+                    android:id="@+id/tvwancheng_keyboard"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="完成"
+                    android:gravity="center"
+                    android:textSize="20dp"
+                    android:textColor="@color/color_red_hxd"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
