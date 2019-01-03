@@ -1,6 +1,8 @@
 package com.hx.hexinkeyboard
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.os.Build
 import android.text.InputType
 import android.util.AttributeSet
 import android.view.Gravity
@@ -16,6 +18,10 @@ import java.lang.reflect.Method
 class HXKeyboardEditText : EditText {
     private var keyboardType: Int = 0
 
+    lateinit var inflate: View
+    var showOrDismissListener: ((Boolean) -> Unit)? = null
+    lateinit var popWindow: PopupWindow
+
     constructor(context: Context) : this(context, null)
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
@@ -29,11 +35,8 @@ class HXKeyboardEditText : EditText {
         initView()
     }
 
-    lateinit var inflate: View
-    var showOrDissmissistener: ((Boolean) -> Unit)? = null
-    lateinit var popWindow: PopupWindow
 
-    fun initView() {
+    private fun initView() {
         val type = getNumberStyleByType(keyboardType)
         val maxLength = getMaxLength()
         inflate = LayoutInflater.from(context).inflate(R.layout.keybord_layout, null).apply {
@@ -52,9 +55,9 @@ class HXKeyboardEditText : EditText {
             for ((index, value) in tvList.withIndex()) {
                 value.setOnClickListener {
                     if (type == NumberStyle.PayPasswordNum && this@HXKeyboardEditText.text.length == 6) {
-                        this@HXKeyboardEditText.setText("");
+                        this@HXKeyboardEditText.setText("")
                     }
-                    var text = this@HXKeyboardEditText.text.toString()
+                    val text = this@HXKeyboardEditText.text.toString()
                     val indexInsert = this@HXKeyboardEditText.selectionEnd
                     keyBoardEditInit(
                         this@HXKeyboardEditText,
@@ -66,6 +69,7 @@ class HXKeyboardEditText : EditText {
                     )
                 }
             }
+            //00
             tv00_keyboard.setOnClickListener {
                 for (i in 0..1) {
                     var text = this@HXKeyboardEditText.text.toString()
@@ -73,6 +77,7 @@ class HXKeyboardEditText : EditText {
                     keyBoardEditInit(this@HXKeyboardEditText, text, type, indexInsert, 0, maxLength)
                 }
             }
+            //小数点
             tvdian_keyboard.setOnClickListener {
                 if (type == NumberStyle.MoneyNum) {
                     val indexInsert = this@HXKeyboardEditText.selectionEnd
@@ -95,6 +100,7 @@ class HXKeyboardEditText : EditText {
                     }
                 }
             }
+            //删除
             lldelete_keyboard.setOnClickListener {
                 val indexInsert = this@HXKeyboardEditText.selectionEnd
                 if (indexInsert > 0) this@HXKeyboardEditText.setText(
@@ -105,25 +111,7 @@ class HXKeyboardEditText : EditText {
                 )
                 if (indexInsert > 1) this@HXKeyboardEditText.setSelection(indexInsert - 1)
             }
-            this@HXKeyboardEditText.apply {
-
-                if (android.os.Build.VERSION.SDK_INT <= 10) {
-                    inputType = InputType.TYPE_NULL
-                } else {
-                    val cls = EditText::class.java
-                    val method: Method
-                    try {
-                        method = cls.getMethod(
-                            "setShowSoftInputOnFocus",
-                            Boolean::class.javaPrimitiveType
-                        )
-                        method.isAccessible = true
-                        method.invoke(this, false)
-                    } catch (e: Exception) {//TODO: handle exception
-
-                    }
-                }
-            }
+            shield()
 
         }
         popWindow = PopupWindow(
@@ -142,7 +130,31 @@ class HXKeyboardEditText : EditText {
         setOnClickListener {
             if (!popWindow.isShowing) {
                 popWindow.showAtLocation(rootView, Gravity.BOTTOM, 0, 0)
-                showOrDissmissistener?.invoke(true)
+                showOrDismissListener?.invoke(true)
+            }
+        }
+    }
+
+    //屏蔽掉原生键盘
+    @SuppressLint("ObsoleteSdkInt")
+    private fun shield() {
+        this@HXKeyboardEditText.apply {
+            //其实没用 已经不兼容2.3了
+            if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.GINGERBREAD_MR1) {
+                inputType = InputType.TYPE_NULL
+            } else {
+                val cls = EditText::class.java
+                val method: Method
+                try {
+                    method = cls.getMethod(
+                        "setShowSoftInputOnFocus",
+                        Boolean::class.javaPrimitiveType
+                    )
+                    method.isAccessible = true
+                    method.invoke(this, false)
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
             }
         }
     }
@@ -170,7 +182,7 @@ class HXKeyboardEditText : EditText {
     fun dismiss() {
         if (popWindow.isShowing) {
             popWindow.dismiss()
-            showOrDissmissistener?.invoke(false)
+            showOrDismissListener?.invoke(false)
         }
     }
 }

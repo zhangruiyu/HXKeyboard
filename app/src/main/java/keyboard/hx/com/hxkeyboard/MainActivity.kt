@@ -3,6 +3,7 @@ package keyboard.hx.com.hxkeyboard
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 
@@ -20,7 +21,9 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
-        edit_text.requestFocus()
+        edit_text.showOrDismissListener = {
+            Log.e("MainActivity ", "showOrDismissListener $it")
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -39,4 +42,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onPause() {
+        super.onPause()
+        edit_text.dismiss()
+    }
 }
