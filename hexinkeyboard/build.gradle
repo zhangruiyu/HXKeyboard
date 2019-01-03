@@ -4,29 +4,7 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
-ext {
-    bintrayRepo = 'maven'
-    bintrayName = 'hexinkeyboard'
-
-    publishedGroupId = 'com.hexin.hexinkeyboard'
-    libraryName = 'hexinkeyboard'
-    artifact = 'hexin'
-
-    libraryDescription = 'A hexinkeyboard on Android'
-
-    siteUrl = 'https://github.com/idisfkj/idisfkj.picker'
-    gitUrl = 'https://github.com/idisfkj/idisfkj.picker.git'
-
-    libraryVersion = '1.2.1'
-
-    developerId = 'idisfkj'
-    developerName = 'idisfkj'
-    developerEmail = 'idisfkj@qq.com'
-
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
-}
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 28
@@ -47,6 +25,10 @@ android {
         }
     }
 
+    lintOptions {
+        abortOnError false
+    }
+
 }
 
 dependencies {
@@ -57,4 +39,14 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+
+publish {
+    userOrg = 'pingpingxiaojie'//bintray用户名
+    repoName = 'hx'//要传到的maven的名字。你可能有多个maven，要传哪个写哪个。
+    groupId = 'com.hx'//jcenter上的路径
+    artifactId = 'hexinkeyboard'//项目名称
+    publishVersion = '1.0.0'//版本号
+    desc = 'hx custom keyboard'//描述，不重要
+    website = 'https://github.com/zhangruiyu/HXKeyboard'//网站，不重要；尽量模拟github上的地址
 }
