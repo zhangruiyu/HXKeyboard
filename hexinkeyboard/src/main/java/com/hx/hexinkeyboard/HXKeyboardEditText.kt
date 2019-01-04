@@ -111,7 +111,7 @@ class HXKeyboardEditText : EditText {
                 )
                 if (indexInsert > 1) this@HXKeyboardEditText.setSelection(indexInsert - 1)
             }
-            shield()
+            shieldNativeKeyboard()
 
         }
         popWindow = PopupWindow(
@@ -137,7 +137,7 @@ class HXKeyboardEditText : EditText {
 
     //屏蔽掉原生键盘
     @SuppressLint("ObsoleteSdkInt")
-    private fun shield() {
+    private fun shieldNativeKeyboard() {
         this@HXKeyboardEditText.apply {
             //其实没用 已经不兼容2.3了
             if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.GINGERBREAD_MR1) {
