@@ -20,7 +20,7 @@ class HXKeyboardEditText : EditText {
 
     lateinit var inflate: View
     var showOrDismissListener: ((Boolean) -> Unit)? = null
-    lateinit var popWindow: PopupWindow
+    var popWindow: PopupWindow? = null
 
     constructor(context: Context) : this(context, null)
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
@@ -128,10 +128,7 @@ class HXKeyboardEditText : EditText {
             dismiss()
         }
         setOnClickListener {
-            if (!popWindow.isShowing) {
-                popWindow.showAtLocation(rootView, Gravity.BOTTOM, 0, 0)
-                showOrDismissListener?.invoke(true)
-            }
+            show()
         }
     }
 
@@ -179,9 +176,24 @@ class HXKeyboardEditText : EditText {
         return lenght
     }
 
+    fun delayedShow() {
+        postDelayed({
+            if (popWindow != null) {
+                show()
+            }
+        }, 300)
+    }
+
+    fun show() {
+        if (popWindow?.isShowing == false) {
+            popWindow?.showAtLocation(rootView, Gravity.BOTTOM, 0, 0)
+            showOrDismissListener?.invoke(true)
+        }
+    }
+
     fun dismiss() {
-        if (popWindow.isShowing) {
-            popWindow.dismiss()
+        if (popWindow?.isShowing == true) {
+            popWindow?.dismiss()
             showOrDismissListener?.invoke(false)
         }
     }
