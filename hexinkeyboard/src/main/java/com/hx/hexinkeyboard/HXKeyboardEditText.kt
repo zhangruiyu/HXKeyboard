@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.keybord_layout.view.*
 import java.lang.reflect.Method
 
 
-class HXKeyboardEditText : EditText {
+open class HXKeyboardEditText : EditText {
     private var keyboardType: Int = 0
 
     lateinit var inflate: View

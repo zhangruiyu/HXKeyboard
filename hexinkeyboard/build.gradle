@@ -34,7 +34,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'com.android.support:appcompat-v7:28.0.0'
+//    implementation 'com.android.support:appcompat-v7:28.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
@@ -46,7 +46,7 @@ publish {
     repoName = 'hx'//要传到的maven的名字。你可能有多个maven，要传哪个写哪个。
     groupId = 'com.hx'//jcenter上的路径
     artifactId = 'hexinkeyboard'//项目名称
-    publishVersion = '1.0.2'//版本号
+    publishVersion = '1.0.4'//版本号
     desc = 'hx custom keyboard'//描述，不重要
     website = 'https://github.com/zhangruiyu/HXKeyboard'//网站，不重要；尽量模拟github上的地址
 }
