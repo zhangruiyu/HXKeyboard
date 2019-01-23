@@ -20,6 +20,8 @@ open class HXKeyboardEditText : EditText {
 
     lateinit var inflate: View
     var showOrDismissListener: ((Boolean) -> Unit)? = null
+    var okClickListener: (() -> Unit)? = null
+    var deleteClickListener: (() -> Unit)? = null
     var popWindow: PopupWindow? = null
 
     constructor(context: Context) : this(context, null)
@@ -110,6 +112,7 @@ open class HXKeyboardEditText : EditText {
                     ).toString()
                 )
                 if (indexInsert > 1) this@HXKeyboardEditText.setSelection(indexInsert - 1)
+                deleteClickListener?.invoke()
             }
             shieldNativeKeyboard()
 
@@ -126,6 +129,7 @@ open class HXKeyboardEditText : EditText {
         }
         inflate.tvwancheng_keyboard.setOnClickListener {
             dismiss()
+            okClickListener?.invoke()
         }
         setOnClickListener {
             show()
