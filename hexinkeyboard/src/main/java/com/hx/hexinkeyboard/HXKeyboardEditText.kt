@@ -24,19 +24,29 @@ open class HXKeyboardEditText : EditText {
     var deleteClickListener: (() -> Unit)? = null
     var popWindow: PopupWindow? = null
 
-    constructor(context: Context) : this(context, null)
-    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
+        initType(attrs)
+    }
+
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(
         context,
         attrs,
         defStyleAttr
     ) {
+        initType(attrs)
+
+    }
+
+    private fun initType(attrs: AttributeSet) {
         val array = context.obtainStyledAttributes(attrs, R.styleable.HXKeyboardEditText)
         keyboardType = array.getInteger(R.styleable.HXKeyboardEditText_keyboard_type, 0)
         array?.recycle()
-        initView()
     }
 
+    init {
+        initView()
+    }
 
     private fun initView() {
         val type = getNumberStyleByType(keyboardType)
