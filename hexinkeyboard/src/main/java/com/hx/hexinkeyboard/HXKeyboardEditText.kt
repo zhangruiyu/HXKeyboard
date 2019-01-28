@@ -42,9 +42,6 @@ open class HXKeyboardEditText : EditText {
         val array = context.obtainStyledAttributes(attrs, R.styleable.HXKeyboardEditText)
         keyboardType = array.getInteger(R.styleable.HXKeyboardEditText_keyboard_type, 0)
         array?.recycle()
-    }
-
-    init {
         initView()
     }
 

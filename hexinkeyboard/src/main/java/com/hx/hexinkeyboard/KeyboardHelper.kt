@@ -77,7 +77,12 @@ fun keyBoardEditInit(
         if (textEnd.isNullOrEmpty().not()) {
             setText(textEnd)
             if (selectionIndex != null) {
-                setSelection(selectionIndex)
+                try {
+                    setSelection(selectionIndex)
+                }catch (e:IndexOutOfBoundsException){
+                    e.printStackTrace()
+                }
+
             }
         }
     }
